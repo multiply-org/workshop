@@ -1,4 +1,9 @@
 from datetime import datetime, timedelta
+from typing import List
+
+
+def get_data_stores_dir() -> str:
+    return '/home/multiply-user/testpath/frascati_data_stores.yml'
 
 
 def increase_time_step(current_time: datetime, time_interval: int, time_interval_unit: str) -> datetime:
@@ -9,22 +14,24 @@ def increase_time_step(current_time: datetime, time_interval: int, time_interval
     return current_time
 
 
-def get_config(priors_sm_dir: str, priors_veg_dir: str, start_time: str, end_time: str, roi: str) -> dict:
+def get_config(priors_sm_dir: str, priors_veg_dir: str, start_time: str, end_time: str, roi: str,
+               variables: List[str], time_interval: int, time_interval_unit: str, spatial_resolution_x: int,
+               spatial_resolution_y: int) -> dict:
     config = {}
-    config['General'] = _get_general_config(start_time=start_time, end_time=end_time, roi=roi)
-    config['Inference'] = _get_inference_config()
+    config['General'] = _get_general_config(start_time=start_time, end_time=end_time, roi=roi,
+                                            time_interval=time_interval, time_interval_unit=time_interval_unit,
+                                            spatial_resolution_x=spatial_resolution_x,
+                                            spatial_resolution_y=spatial_resolution_y)
+    config['Inference'] = _get_inference_config(variables)
     config['Prior'] = _get_prior_config(priors_sm_dir=priors_sm_dir, priors_veg_dir=priors_veg_dir)
     return config
 
 
-def _get_general_config(start_time: str, end_time: str, roi: str) -> dict:
+def _get_general_config(start_time: str, end_time: str, roi: str, time_interval: int, time_interval_unit: str,
+                        spatial_resolution_x: int, spatial_resolution_y: int) -> dict:
     start_time_as_string = start_time
     end_time_as_string = end_time
-    time_interval = 1
-    time_interval_unit = 'days'
-    spatial_resolution_x = 10
     spatial_resolution_x_unit = 'm'
-    spatial_resolution_y = 10
     spatial_resolution_y_unit = 'm'
     path_to_state_mask = '/path/to/my/state_mask.tif'
     output_directory_root = '/some/where/'
@@ -43,8 +50,8 @@ def _get_general_config(start_time: str, end_time: str, roi: str) -> dict:
     return general_dict
 
 
-def _get_inference_config() -> dict:
-    parameters = ['sm', 'lai', 'cab']
+def _get_inference_config(variables: List[str]) -> dict:
+    parameters = variables
     optical_operator_library = 'some_operator.nc'
     sar_operator_library = 'some_other_operator.nc'
     a_matrix = 'identity'
