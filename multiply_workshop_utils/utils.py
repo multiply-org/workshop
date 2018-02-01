@@ -3,7 +3,7 @@ from typing import List
 
 
 def get_data_stores_dir() -> str:
-    return '/home/multiply-user/testpath/frascati_data_stores.yml'
+    return '/home/multiply-user/framework/testpath/frascati_data_stores.yml'
 
 
 def increase_time_step(current_time: datetime, time_interval: int, time_interval_unit: str) -> datetime:
