@@ -3,21 +3,21 @@ DataStores:
     FileSystem:
       type: LocalFileSystem
       parameters:
-        path: '/home/user/multiply-user/data2/Priors/Climatology'
+        path: '/home/multiply-user/data2/Priors/Climatology'
         pattern: '/dt/'
     MetaInfoProvider:
       type: JsonMetaInfoProvider
       parameters:
-        path_to_json_file: '/home/user/multiply-user/framework/workshop/frascati-20180205/frascati_sm_priors_meta_info.json'
+        path_to_json_file: '/home/multiply-user/framework/workshop/frascati-20180205/frascati_sm_priors_meta_info.json'
     Id: 'FrascatiSoilMoisturePriors'
   - DataStore:
     FileSystem:
       type: LocalFileSystem
       parameters:
-        path: '/home/user/multiply-user/data2/Priors/Static'
+        path: '/home/multiply-user/data2/Priors/Static'
         pattern: '/dt/'
     MetaInfoProvider:
       type: JsonMetaInfoProvider
       parameters:
-        path_to_json_file: '/home/user/multiply-user/framework/workshop/frascati-20180205/frascati_veg_priors_meta_info.json'
+        path_to_json_file: '/home/multiply-user/framework/workshop/frascati-20180205/frascati_veg_priors_meta_info.json'
     Id: 'FrascatiVegetationPriors'
