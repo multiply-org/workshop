@@ -2,8 +2,12 @@ from datetime import datetime, timedelta
 from typing import List
 
 
-def get_data_stores_dir() -> str:
-    return '/home/multiply-user/framework/testpath/frascati_data_stores.yml'
+def get_data_stores_file() -> str:
+    return '{}frascati_data_stores.yml'.format(get_out_path())
+
+
+def get_out_path() -> str:
+    return '/home/multiply-user/framework/testpath/'
 
 
 def increase_time_step(current_time: datetime, time_interval: int, time_interval_unit: str) -> datetime:
