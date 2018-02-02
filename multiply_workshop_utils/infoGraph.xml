@@ -1,0 +1,10 @@
+<graph id="infoGraph">
+    <version>1.0</version>
+    <node id="info">
+      <operator>Info</operator>
+      <sources>
+        <sourceProduct>${sourceProduct}</sourceProduct>
+      </sources>
+      <parameters/>
+    </node>
+</graph>
