@@ -20,7 +20,7 @@ for path in dir_content:
         # result = subprocess.check_output(['gpt Info', in_dir + '/'+ path])
         # result = os.popen('gpt Info' + in_dir + '/'+ path)
         # result = os.system('gpt Info '+  in_dir + '/'+ path)
-        result = subprocess.check_output(['./', 'gpt', 'Info', in_dir + '/'+ path])
+        result = subprocess.check_output(['sudo', './', 'gpt', 'Info', in_dir + '/'+ path])
         # read = result.read()
         info_data = result.decode('utf-8').split('\r\n')
         start_time = info_data[0].split('=')[1]
