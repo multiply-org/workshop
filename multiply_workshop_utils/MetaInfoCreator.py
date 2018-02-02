@@ -18,7 +18,7 @@ for path in dir_content:
         dataset['data_type'] = data_type
         dataset['name'] = path
         # result = subprocess.check_output(['gpt', 'Info', in_dir + '/'+ path])
-        result = subprocess.check_output(['./gpt', 'Info', in_dir + '/'+ path])
+        result = subprocess.check_output(['./gpt Info', in_dir + '/'+ path])
         info_data = result.decode('utf-8').split('\r\n')
         start_time = info_data[0].split('=')[1]
         if not start_time == 'null':
