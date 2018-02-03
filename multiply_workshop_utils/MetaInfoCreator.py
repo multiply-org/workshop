@@ -38,7 +38,7 @@ for path in dir_content:
                         dataset['spatial_coverage'] = info.split('=')[1]
                     elif 'h21v09' in path:
                         dataset['spatial_coverage'] = mcd43_h21v09_polygon
-            os.remove('out.txt')
+            # os.remove('out.txt')
             dataset_list.append(dataset)
 datasets['datasets'] = dataset_list
 with open(out_dir +'/' + out_name, 'w') as out_file:
