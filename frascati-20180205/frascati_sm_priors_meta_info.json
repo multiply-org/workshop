@@ -1,8 +1,12 @@
 {
   "data_sets": [
     {
-      "data_type": "SoilMoisture",
-      "name": "SoilMoisture"
+      "data_type": "SoilMoistureMeasured",
+      "name": "SoilMoistureMeasured"
+    },
+    {
+      "data_type": "SoilMoistureCCI",
+      "name": "SoilMoistureCCI"
     }
   ]
 }

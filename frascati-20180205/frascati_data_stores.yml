@@ -76,3 +76,14 @@ DataStores:
       parameters:
         path_to_json_file: '/home/t_fincke/s1_grd_meta_info.json'
     Id: 'S1_GRD'
+  - DataStore:
+    FileSystem:
+      type: LocalFileSystem
+      parameters:
+        path: '/Data/Emulators'
+        pattern: '/dt/'
+    MetaInfoProvider:
+      type: JsonMetaInfoProvider
+      parameters:
+        path_to_json_file: '/home/multiply-user/framework/workshop/frascati-20180205/emulators_meta_info.json'
+    Id: 'Emus'
