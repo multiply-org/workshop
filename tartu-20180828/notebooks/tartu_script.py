@@ -47,7 +47,7 @@ create_sym_links(cams_urls, cams_dir)
 create_sym_links(modis_urls, modis_dir)
 
 processor_dir = '/software/atmospheric_correction-0.8/multiply_atmospheric_corection'
-os.system("ln -s "+processor_dir+"/data ./data")
+os.system("sudo ln -s "+processor_dir+"/data ./data")
 command = "PYTHONPATH=$PYTHONPATH:" + processor_dir + "/util python " + processor_dir + "/Sentinel2_AtmoCor.py -f " + s2_urls[0] + "/ -m " + modis_dir + " -e " + emus_dir + " -c " + cams_dir + " -w " + wv_emu_url[0] + " -d " + aster_dem_url[0]
 print(command)
 os.system(command)
