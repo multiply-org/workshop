@@ -53,6 +53,6 @@ os.system("PYTHONPATH=$PYTHONPATH:"+processor_dir+"/util python "+processor_dir+
 os.system("rm $(find "+s2_l1c_dir+" -type l)")
 # os.system("mv "+s2_l1c_dir+" "+s2_l2_dir+"/" + s2_l2_product_name)
 # exchange this with call to data access component
-os.system("rm -rf "+s2_l2_dir)
-os.system("rm $(find . -type l)")
+# os.system("rm -rf "+s2_l2_dir)
+# os.system("rm $(find . -type l)")
 
