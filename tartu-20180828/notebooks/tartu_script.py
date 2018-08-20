@@ -15,7 +15,7 @@ emu_urls = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_time,
 print(emu_urls)
 wv_emu_url = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_time, 'WV_EMU')
 print(wv_emu_url)
-aster_dem_url = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_time, 'Aster DEM')
+aster_dem_url = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_time, 'AsterDEM')
 print(aster_dem_url)
 cams_urls = data_access_component.get_data_urls(BARRAX_ROI, '2017-1-16', '2017-1-16', 'CAMS')
 cams_urls.extend(data_access_component.get_data_urls(BARRAX_ROI, '2017-1-19', '2017-1-19', 'CAMS'))
