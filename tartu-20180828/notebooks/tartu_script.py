@@ -25,7 +25,7 @@ modis_end_time = '2017-01-22'
 modis_urls = data_access_component.get_data_urls(BARRAX_ROI, modis_start_time, modis_end_time, 'MCD43A1.006')
 print(modis_urls)
 import os
-working_dir = '/home/tonio/m1/'
+working_dir = '/home/user/m1/'
 def create_dir(dir):
     if not os.path.exists(dir):
         os.makedirs(dir)
