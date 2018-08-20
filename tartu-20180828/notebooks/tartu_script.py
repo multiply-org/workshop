@@ -13,9 +13,9 @@ s2_urls = data_access_component.get_data_urls_from_data_set_meta_infos(s2_data_i
 print(s2_urls)
 emu_urls = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_time, 'ISO_MSI_A_EMU,ISO_MSI_B_EMU,WV_EMU')
 print(emu_urls)
-wv_emu_url = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_time, 'WV_EMU')
+wv_emu_url = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_time, 'WV_EMU')[0]
 print(wv_emu_url)
-aster_dem_url = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_time, 'AsterDEM')
+aster_dem_url = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_time, 'AsterDEM')[0]
 print(aster_dem_url)
 cams_urls = data_access_component.get_data_urls(BARRAX_ROI, '2017-1-16', '2017-1-16', 'CAMS')
 cams_urls.extend(data_access_component.get_data_urls(BARRAX_ROI, '2017-1-19', '2017-1-19', 'CAMS'))
@@ -47,12 +47,11 @@ create_sym_links(cams_urls, cams_dir)
 create_sym_links(modis_urls, modis_dir)
 
 processor_dir = '/software/atmospheric_correction-0.8/multiply_atmospheric_corection'
-os.system("PYTHONPATH=$PYTHONPATH:"+processor_dir+"/util python "+processor_dir+"/Sentinel2_AtmoCor.py -f "
-          + s2_l1c_dir +"/ -m "+ modis_dir + " -e " + emus_dir + " -c " + cams_dir + " -w " + wv_emu_url +
-          " -d " + aster_dem_url)
+command = "PYTHONPATH=$PYTHONPATH:" + processor_dir + "/util python " + processor_dir + "/Sentinel2_AtmoCor.py -f " + s2_l1c_dir + "/ -m " + modis_dir + " -e " + emus_dir + " -c " + cams_dir + " -w " + wv_emu_url[0] + " -d " + aster_dem_url[0]
+print(command)
+os.system(command)
 os.system("rm $(find "+s2_l1c_dir+" -type l)")
 # os.system("mv "+s2_l1c_dir+" "+s2_l2_dir+"/" + s2_l2_product_name)
 # exchange this with call to data access component
 # os.system("rm -rf "+s2_l2_dir)
 # os.system("rm $(find . -type l)")
-
