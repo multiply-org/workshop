@@ -53,7 +53,7 @@ processor_dir = '/software/atmospheric_correction-0.8/multiply_atmospheric_corec
 os.system("sudo ln -s "+processor_dir+"/data ./data")
 command = "PYTHONPATH=$PYTHONPATH:" + processor_dir + "/util python " + processor_dir + "/Sentinel2_AtmoCor.py -f " + s2_dirs[0] + "/ -m " + modis_dir + " -e " + emus_dir + " -c " + cams_dir + " -w " + wv_emu_url[0] + " -d " + aster_dem_url[0]
 print(command)
-# os.system(command)
+os.system(command)
 # os.system("rm $(find "+s2_l1c_dir+" -type l)")
 # os.system("mv "+s2_l1c_dir+" "+s2_l2_dir+"/" + s2_l2_product_name)
 # exchange this with call to data access component
