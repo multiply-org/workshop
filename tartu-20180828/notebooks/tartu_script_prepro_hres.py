@@ -52,7 +52,7 @@ s2_dirs = glob.glob(s2_l1c_dir + "/*/*/*/*/*/*/*")
 
 s2_dir = s2_dirs[0]
 input_parts = s2_dir.split('/')
-s2_l2_product_name = 'S2-{:04d}{:02d}{:02d}'.format(input_parts[-4], input_parts[-3], input_parts[-2])
+s2_l2_product_name = 'S2-{}{}{}'.format(input_parts[-4], input_parts[-3], input_parts[-2])
 
 processor_dir = '/software/atmospheric_correction-0.8/multiply_atmospheric_corection'
 os.system("sudo ln -s "+processor_dir+"/data ./data")
