@@ -1,4 +1,5 @@
 from multiply_data_access import DataAccessComponent
+import yaml
 data_access_component = DataAccessComponent()
 data_access_component.show_stores()
 data_access_component.get_provided_data_types()
@@ -51,7 +52,7 @@ s2_dirs = glob.glob(s2_l1c_dir + "/*/*/*/*/*/*/*")
 
 processor_dir = '/software/atmospheric_correction-0.8/multiply_atmospheric_corection'
 os.system("sudo ln -s "+processor_dir+"/data ./data")
-command = "PYTHONPATH=$PYTHONPATH:" + processor_dir + "/util python " + processor_dir + "/Sentinel2_AtmoCor.py -f " + s2_dirs[0] + "/ -m " + modis_dir + " -e " + emus_dir + " -c " + cams_dir + " -w " + wv_emu_url[0] + " -d " + aster_dem_url[0]
+command = "PYTHONPATH=$PYTHONPATH:" + processor_dir + "/util python " + processor_dir + "/Sentinel2_AtmoCor.py -f " + s2_dirs[0] + "/ -m " + modis_dir + " -e " + emus_dir + " -c " + cams_dir + " -w " + wv_emu_url + " -d " + aster_dem_url
 print(command)
 os.system(command)
 # os.system("rm $(find "+s2_l1c_dir+" -type l)")
