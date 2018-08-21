@@ -61,8 +61,12 @@ print(command)
 os.system(command)
 s2_l2_product_dir = s2_l2_dir + "/" + s2_l2_product_name
 os.system('sudo cp -b ' + s2_dir + '/metadata.xml ' + s2_l2_product_dir)
+print("rm $(find "+s2_dir+" -type l)")
 os.system("rm $(find "+s2_dir+" -type l)")
+print("mv " + s2_dir + " " + s2_l2_product_dir)
 os.system("mv " + s2_dir + " " + s2_l2_product_dir)
-# put in data access component
+data_access_component.put(s2_l2_product_dir)
+print("rm -rf "+s2_dir)
 os.system("rm -rf "+s2_dir)
+print("rm $(find . -type l)")
 os.system("rm $(find . -type l)")
