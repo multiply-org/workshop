@@ -59,8 +59,10 @@ os.system("sudo ln -s "+processor_dir+"/data ./data")
 command = "PYTHONPATH=$PYTHONPATH:" + processor_dir + "/util python " + processor_dir + "/Sentinel2_AtmoCor.py -f " + s2_dir + "/ -m " + modis_dir + " -e " + emus_dir + " -c " + cams_dir + " -w " + wv_emu_url + " -d " + aster_dem_url
 print(command)
 os.system(command)
+s2_l2_product_dir = s2_l2_dir + "/" + s2_l2_product_name
+os.system('sudo cp -b ' + s2_dir + '/metadata.xml ' + s2_l2_product_dir)
 os.system("rm $(find "+s2_dir+" -type l)")
-os.system("mv "+s2_dir+" "+s2_l2_dir+"/" + s2_l2_product_name)
+os.system("mv " + s2_dir + " " + s2_l2_product_dir)
 # put in data access component
 os.system("rm -rf "+s2_dir)
 os.system("rm $(find . -type l)")
