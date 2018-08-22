@@ -49,8 +49,8 @@ create_sym_links(s2_urls, s2_l2_dir)
 
 # import glob
 # s2_dirs = glob.glob(s2_l1c_dir + "/*/*/*/*/*/*/*")
-
-# processor_dir = '/software/atmospheric_correction-0.8/multiply_atmospheric_corection'
+processor_dir = '/software/atmospheric_correction-0.8/multiply_atmospheric_corection'
+os.system("sudo ln -s "+processor_dir+"/data ./data")
 # command = "PYTHONPATH=$PYTHONPATH:" + processor_dir + "/util python " + processor_dir + "/Sentinel2_AtmoCor.py -f " + s2_dirs[0] + "/ -m " + modis_dir + " -e " + emus_dir + " -c " + cams_dir + " -w " + wv_emu_url + " -d " + aster_dem_url
 # print(command)
 # os.system(command)
@@ -83,7 +83,6 @@ priors_dir = '{}/priors'.format(working_dir)
 # os.system("mv " + soil_moisture_dir + "/*.vrt " + priors_dir + "/")
 
 inference_engine_dir = '/software/inference-engine-0.4/multiply_inference_engine'
-os.system("sudo ln -s "+inference_engine_dir+"/data ./data")
 s2_emulators_dir = '/data/archive/emulators/s2_prosail'
 inference_type = 'high'
 state_mask = parameters['General']['state_mask']
