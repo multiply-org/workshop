@@ -62,7 +62,7 @@ create_dir(working_dir)
 # os.system("rm $(find . -type l)")
 from multiply_prior_engine import PriorEngine
 import datetime
-time = start_time
+time = datetime.datetime.strptime(start_time, '%Y-%m-%d')
 configuration_file='{}/config.yaml'.format(os.getcwd())
 with open(configuration_file) as config_file:
     parameters = yaml.load(config_file)
