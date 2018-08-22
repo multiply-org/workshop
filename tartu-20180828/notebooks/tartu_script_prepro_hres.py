@@ -57,17 +57,11 @@ s2_l2_product_name = 'S2-{}{}{}'.format(input_parts[-4], input_parts[-3], input_
 processor_dir = '/software/atmospheric_correction-0.8/multiply_atmospheric_corection'
 os.system("sudo ln -s "+processor_dir+"/data ./data")
 command = "PYTHONPATH=$PYTHONPATH:" + processor_dir + "/util python " + processor_dir + "/Sentinel2_AtmoCor.py -f " + s2_dir + "/ -m " + modis_dir + " -e " + emus_dir + " -c " + cams_dir + " -w " + wv_emu_url + " -d " + aster_dem_url
-print(command)
 os.system(command)
 s2_l2_product_dir = s2_l2_dir + "/" + s2_l2_product_name
 create_dir(s2_l2_product_dir)
 os.system('sudo cp -b ' + s2_dir + '/metadata.xml ' + s2_l2_product_dir)
-print("rm $(find "+s2_dir+" -type l)")
 os.system("rm $(find "+s2_dir+" -type l)")
-# print("mv " + s2_dir + " " + s2_l2_product_dir)
-# os.system("mv " + s2_dir + " " + s2_l2_product_dir)
-# data_access_component.put(s2_l2_product_dir)
-# print("rm -rf "+s2_dir)
-# os.system("rm -rf "+s2_dir)
-# print("rm $(find . -type l)")
-# os.system("rm $(find . -type l)")
+data_access_component.put(s2_l2_product_dir)
+os.system("rm -rf "+s2_dir)
+os.system("sudo rm $(find . -type l)")
