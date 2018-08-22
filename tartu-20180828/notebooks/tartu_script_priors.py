@@ -69,20 +69,21 @@ with open(configuration_file) as config_file:
     parameters = yaml.load(config_file)
 variables = ['n', 'cab', 'car', 'cbrown', 'cw', 'cm', 'lai', 'ala', 'bsoil', 'psoil']
 while time <= end_time:
-    print(time)
-    prior_engine = PriorEngine(config=configuration_file, datestr=time.strftime('%Y-%m-%d'), variables=variables)
+    time_as_string = time.strftime('%Y-%m-%d')
+    print(time_as_string)
+    prior_engine = PriorEngine(config=configuration_file, datestr=time_as_string, variables=variables)
     priors = prior_engine.get_priors()
     time = time + datetime.timedelta(days=1)
-priors_dir = '{}/priors'.format(working_dir)
+priors_dir = '{}/priors/'.format(working_dir)
 create_dir(priors_dir)
-os.system("mv *.vrt " +priors_dir+"/")
+os.system("mv *.vrt " + priors_dir)
 
-ptype = parameters['Prior']['sm']
-if 'climatology' in ptype:
-    soil_moisture_dir = parameters['Prior']['sm']['climatology']['climatology_dir']
-else:
-    soil_moisture_dir = parameters['Prior']['General']['directory_data']
-os.system("mv " + soil_moisture_dir + "/*.vrt " + priors_dir + "/")
+# ptype = parameters['Prior']['sm']
+# if 'climatology' in ptype:
+#     soil_moisture_dir = parameters['Prior']['sm']['climatology']['climatology_dir']
+# else:
+#     soil_moisture_dir = parameters['Prior']['General']['directory_data']
+#     os.system("mv " + soil_moisture_dir + "/*.vrt " + priors_dir + "/")
 
 # inference_engine_dir = '/software/inference-engine-0.4/multiply_inference_engine'
 # s2_emulators_dir = '/data/archive/emulators/s2_prosail'
