@@ -67,11 +67,11 @@ end_time = datetime.datetime.strptime(end_time, '%Y-%m-%d')
 configuration_file='{}/config.yaml'.format(os.getcwd())
 with open(configuration_file) as config_file:
     parameters = yaml.load(config_file)
-variables = 'n, cab, car, cbrown, cw, cm, lai, ala, bsoil, psoil'
+variables = ['n', 'cab', 'car', 'cbrown', 'cw', 'cm', 'lai', 'ala', 'bsoil', 'psoil']
 while time <= end_time:
     print(time)
-    PE = PriorEngine(config=configuration_file, datestr=time.strftime('%Y-%m-%d'), variables=variables)
-    priors = PE.get_priors()
+    prior_engine = PriorEngine(config=configuration_file, datestr=time.strftime('%Y-%m-%d'), variables=variables)
+    priors = prior_engine.get_priors()
     time = time + datetime.timedelta(days=1)
 priors_dir = '{}/priors'.format(working_dir)
 create_dir(priors_dir)
