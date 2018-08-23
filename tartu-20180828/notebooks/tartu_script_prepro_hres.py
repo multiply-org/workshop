@@ -49,7 +49,7 @@ create_sym_links(modis_urls, modis_dir)
 import glob
 s2_dirs = glob.glob(s2_l1c_dir + "/*/*/*/*/*/*/*")
 
-s2_dir = s2_dirs[0]
+s2_dir = s2_dirs[1]
 input_parts = s2_dir.split('/')
 s2_l2_product_name = 'S2-{}{}{}'.format(input_parts[-4], input_parts[-3], input_parts[-2])
 
@@ -60,8 +60,9 @@ os.system(command)
 s2_l2_product_dir = s2_l2_dir + "/" + s2_l2_product_name
 create_dir(s2_l2_product_dir)
 os.system('sudo cp -b ' + s2_dir + '/metadata.xml ' + s2_l2_product_dir)
-# os.system("rm $(find "+s2_dir+" -type l)")
-# os.system()
-# data_access_component.put(s2_l2_product_dir)
+os.system("rm $(find "+s2_dir+" -type l)")
+os.system('mv ' + s2_dir + '/ ' + s2_l2_product_dir)
+data_access_component.put(s2_l2_product_dir)
+# maybe later for cleanup
 # os.system("rm -rf "+s2_dir)
 # os.system("sudo rm $(find . -type l)")
