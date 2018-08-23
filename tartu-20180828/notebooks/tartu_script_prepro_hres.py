@@ -1,5 +1,4 @@
 from multiply_data_access import DataAccessComponent
-import yaml
 data_access_component = DataAccessComponent()
 data_access_component.show_stores()
 data_access_component.get_provided_data_types()
@@ -50,7 +49,7 @@ create_sym_links(modis_urls, modis_dir)
 import glob
 s2_dirs = glob.glob(s2_l1c_dir + "/*/*/*/*/*/*/*")
 
-s2_dir = s2_dirs[1]
+s2_dir = s2_dirs[0]
 input_parts = s2_dir.split('/')
 s2_l2_product_name = 'S2-{}{}{}'.format(input_parts[-4], input_parts[-3], input_parts[-2])
 
