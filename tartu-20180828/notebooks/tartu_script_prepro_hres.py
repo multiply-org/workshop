@@ -6,8 +6,8 @@ data_access_component.get_provided_data_types()
 BARRAX_ROI = "POLYGON((-2.20397502663252 39.09868106889479,-1.9142106223355313 39.09868106889479," \
              "-1.9142106223355313 38.94504502508093,-2.20397502663252 38.94504502508093," \
              "-2.20397502663252 39.09868106889479))"
-start_time = '2017-01-01'
-end_time = '2017-01-20'
+start_time = '2017-06-01'
+end_time = '2017-06-10'
 s2_data_infos = data_access_component.query(BARRAX_ROI, start_time, end_time, 'AWS_S2_L1C')
 print(s2_data_infos)
 s2_urls = data_access_component.get_data_urls_from_data_set_meta_infos(s2_data_infos)
@@ -18,15 +18,15 @@ wv_emu_url = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_tim
 print(wv_emu_url)
 aster_dem_url = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_time, 'AsterDEM')[0]
 print(aster_dem_url)
-cams_urls = data_access_component.get_data_urls(BARRAX_ROI, '2017-1-16', '2017-1-16', 'CAMS')
-cams_urls.extend(data_access_component.get_data_urls(BARRAX_ROI, '2017-1-19', '2017-1-19', 'CAMS'))
+cams_urls = data_access_component.get_data_urls(BARRAX_ROI, '2017-6-5', '2017-6-5', 'CAMS')
+# cams_urls.extend(data_access_component.get_data_urls(BARRAX_ROI, '2017-1-19', '2017-1-19', 'CAMS'))
 print(cams_urls)
-modis_start_time = '2017-01-13'
-modis_end_time = '2017-01-22'
+modis_start_time = '2017-05-29'
+modis_end_time = '2017-06-13'
 modis_urls = data_access_component.get_data_urls(BARRAX_ROI, modis_start_time, modis_end_time, 'MCD43A1.006')
 print(modis_urls)
 import os
-working_dir = '/home/user/m1/'
+working_dir = '/home/user/m2/'
 def create_dir(dir):
     if not os.path.exists(dir):
         os.makedirs(dir)
