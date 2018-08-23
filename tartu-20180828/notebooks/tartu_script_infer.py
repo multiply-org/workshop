@@ -65,7 +65,7 @@ os.system("sudo ln -s "+processor_dir+"/data ./data")
 configuration_file='{}/config.yaml'.format(os.getcwd())
 with open(configuration_file) as config_file:
     parameters = yaml.load(config_file)
-variables = 'n, cab, car, cbrown, cw, cm, lai, ala, bsoil, psoil'
+variables = 'n,cab,car,cbrown,cw,cm,lai,ala,bsoil,psoil'
 # while time<=end_time:
 #     print(time)
 #     PE = PriorEngine(config=configuration_file, datestr=time.strftime('%Y-%m-%d'), variables=variables)
