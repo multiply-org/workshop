@@ -9,7 +9,7 @@ General:
     end_time: 2017-01-20
     time_interval: 10 #days
     spatial_resolution: 60 # metres
-    state_mask: .Barrax_pivots.tif
+    state_mask: /home/t_fincke/platform/workshop/tartu-20180828/notebooks/Barrax_pivots.tif
     output_directory_root: /Data/m1/
     # output_prefix: my_test_33
 
