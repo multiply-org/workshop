@@ -5,8 +5,8 @@ data_access_component.get_provided_data_types()
 BARRAX_ROI = "POLYGON((-2.20397502663252 39.09868106889479,-1.9142106223355313 39.09868106889479," \
              "-1.9142106223355313 38.94504502508093,-2.20397502663252 38.94504502508093," \
              "-2.20397502663252 39.09868106889479))"
-start_time = '2017-06-01'
-end_time = '2017-06-10'
+start_time = '2017-01-10'
+end_time = '2017-01-20'
 s2_data_infos = data_access_component.query(BARRAX_ROI, start_time, end_time, 'AWS_S2_L1C')
 print(s2_data_infos)
 s2_urls = data_access_component.get_data_urls_from_data_set_meta_infos(s2_data_infos)
@@ -59,10 +59,10 @@ command = "PYTHONPATH=$PYTHONPATH:" + processor_dir + "/util python " + processo
 os.system(command)
 s2_l2_product_dir = s2_l2_dir + "/" + s2_l2_product_name
 create_dir(s2_l2_product_dir)
-os.system('sudo cp -b ' + s2_dir + '/metadata.xml ' + s2_l2_product_dir)
-os.system("rm $(find "+s2_dir+" -type l)")
-os.system('mv ' + s2_dir + '/ ' + s2_l2_product_dir)
-data_access_component.put(s2_l2_product_dir)
+# os.system('sudo cp -b ' + s2_dir + '/metadata.xml ' + s2_l2_product_dir)
+# os.system("rm $(find "+s2_dir+" -type l)")
+# os.system('mv ' + s2_dir + '/ ' + s2_l2_product_dir)
+# data_access_component.put(s2_l2_product_dir)
 # maybe later for cleanup
 # os.system("rm -rf "+s2_dir)
 # os.system("sudo rm $(find . -type l)")
