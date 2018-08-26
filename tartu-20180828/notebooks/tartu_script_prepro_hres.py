@@ -17,11 +17,11 @@ wv_emu_url = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_tim
 print(wv_emu_url)
 aster_dem_url = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_time, 'AsterDEM')[0]
 print(aster_dem_url)
-cams_urls = data_access_component.get_data_urls(BARRAX_ROI, '2017-01-10', '2017-01-10', 'CAMS')
-cams_urls.extend(data_access_component.get_data_urls(BARRAX_ROI, '2017-01-10', '2017-01-10', 'CAMS'))
+cams_urls = data_access_component.get_data_urls(BARRAX_ROI, '2017-01-16', '2017-01-16', 'CAMS')
+cams_urls.extend(data_access_component.get_data_urls(BARRAX_ROI, '2017-01-19', '2017-01-19', 'CAMS'))
 print(cams_urls)
-modis_start_time = '2017-01-07'
-modis_end_time = '2017-01-23'
+modis_start_time = '2017-01-13'
+modis_end_time = '2017-01-22'
 modis_urls = data_access_component.get_data_urls(BARRAX_ROI, modis_start_time, modis_end_time, 'MCD43A1.006')
 print(modis_urls)
 import os
