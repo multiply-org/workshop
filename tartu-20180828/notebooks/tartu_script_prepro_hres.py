@@ -5,7 +5,7 @@ data_access_component.get_provided_data_types()
 BARRAX_ROI = "POLYGON((-2.20397502663252 39.09868106889479,-1.9142106223355313 39.09868106889479," \
              "-1.9142106223355313 38.94504502508093,-2.20397502663252 38.94504502508093," \
              "-2.20397502663252 39.09868106889479))"
-start_time = '2017-05-05'
+start_time = '2017-05-10'
 end_time = '2017-05-25'
 s2_data_infos = data_access_component.query(BARRAX_ROI, start_time, end_time, 'AWS_S2_L1C')
 print(s2_data_infos)
@@ -17,10 +17,10 @@ wv_emu_url = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_tim
 print(wv_emu_url)
 aster_dem_url = data_access_component.get_data_urls(BARRAX_ROI, start_time, end_time, 'AsterDEM')[0]
 print(aster_dem_url)
-cams_urls = data_access_component.get_data_urls(BARRAX_ROI, '2017-05-05', '2017-05-25', 'CAMS')
+cams_urls = data_access_component.get_data_urls(BARRAX_ROI, '2017-05-10', '2017-05-25', 'CAMS')
 # cams_urls.extend(data_access_component.get_data_urls(BARRAX_ROI, '2017-06-08', '2017-06-08', 'CAMS'))
 print(cams_urls)
-modis_start_time = '2017-05-02'
+modis_start_time = '2017-05-07'
 modis_end_time = '2017-05-28'
 modis_urls = data_access_component.get_data_urls(BARRAX_ROI, modis_start_time, modis_end_time, 'MCD43A1.006')
 print(modis_urls)
